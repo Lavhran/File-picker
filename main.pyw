@@ -24,7 +24,8 @@ class Window(QWidget):
         super().__init__(parent)
 
         self.folder = json["folder"]       # path
-        self.hforders = json["hfolders"]   # hidden folders
+        self.hfolders = json["hfolders"]   # hidden folders
+        self.hfiles = json["hfiles"]
         self.acceptable = json["accepts"]  # accepted file types
         self.files = {}
         self.selected = ""
@@ -69,12 +70,13 @@ class Window(QWidget):
         tmp = search(next)
         if not tmp: return False
         for i in tmp:
-            if i[(len(next)-1):] in self.hforders: continue
+            if i[(len(next)-1):] in self.hfolders: continue
             try:
                 test = self.find_files(f"{i}/*")
                 if not test: raise FileNotFoundError
             except:
                 if not i[-4:] in self.acceptable: continue
+                if i[(len(next) - 1):-4] in self.hfiles: continue
                 self.files[i[(len(next) - 1):-4]] = i
 
 

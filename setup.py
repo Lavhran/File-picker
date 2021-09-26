@@ -1,24 +1,26 @@
 path = input("path: ")
 
-hfolder = []
-print("hidden folders: (q to quit)")
-x = ""
-while x.lower() != "q":
-    x = input("Hide: ")
-    if x == "q": break
-    hfolder.append(x)
+def fill(text1: str, text2: str) -> list:
+    result = []
 
-acceptable = []
-print("Accepts ( filetype example: .lnk ): (q to quit)")
-x = ""
-while x.lower() != "q":
-    x = input("filetype: ")
-    if x == "q": break
-    acceptable.append(x)
+    print("{}\n(q to quit)".format(text1))
+    x = ""
+    while x.lower() != "q":
+        x = input("{}: ".format(text2))
+        if x == "q": break
+        result.append(x)
+    print()
+
+    return result
+
+hfolder = fill("Hidden folders:", "Hide")
+hfiles = fill("Hidden files:", "Hide")
+acceptable = fill("Accepts ( filetype example: .lnk )", "Filetype")
 
 meat = {
     "folder": path,
     "hfolders": hfolder,
+    "hfiles": hfiles,
     "accepts": acceptable
 }
 
