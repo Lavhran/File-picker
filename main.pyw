@@ -1,8 +1,4 @@
-"""
-version: 1.0
-made by: Lavhran
-
-"""
+# version: 1.1
 
 import sys
 from os import startfile
