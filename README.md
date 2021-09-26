@@ -9,5 +9,6 @@ picture:
 - download all the files
 - run setup.py
    - write the path to the folder you want to use it on
+   - write all the files you want to hide
    - write all the folder you want to hide
    - write all the filetypes it should find
